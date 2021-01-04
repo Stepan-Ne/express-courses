@@ -20,14 +20,14 @@ app.set('views', 'views')
 
 // registr folder with css
 app.use(express.static('public'))
+// encoded
+app.use(express.urlencoded({ extended: true }))
 
 
 
 app.use('/', homeRoutes)
 app.use('/courses', coursesRoutes)
 app.use('/add', addRoutes)
-
-
 
 
 
