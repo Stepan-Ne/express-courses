@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const Course = require('../models/courses');
+const Course = require('../models/coursesModule');
 
 router.get('/', (req, res) => {
     res.render('add', {
