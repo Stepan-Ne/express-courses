@@ -12,4 +12,15 @@ const Course = require('../models/coursesModule');
      })
  })
 
+ router.get('/:id', async (req, res) => {
+    
+const course = await Course.getCourseById(req.params.id)
+
+   res.render('course', {
+      title: `Course ${course.title}`,
+      course,
+      layout: 'empty'
+   })
+ })
+
 module.exports = router;

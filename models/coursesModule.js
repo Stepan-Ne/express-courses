@@ -44,6 +44,10 @@ class Course {
       });
     });
   }
+  static async getCourseById(id) {
+    const allCourses = await Course.getData() // arr of objects
+return allCourses.find(c => c.id === id)
+  }
 }
 
 module.exports = Course;
