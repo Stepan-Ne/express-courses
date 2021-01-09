@@ -23,4 +23,15 @@ const course = await Course.getCourseById(req.params.id)
    })
  })
 
+ // Edit the Course
+ router.get('/:id/edit', async(req, res) => {
+   const course = await Course.getCourseById(req.params.id)
+
+
+    res.render('edit-course', {
+       title: 'Edit',
+       course
+    })
+ })
+
 module.exports = router;

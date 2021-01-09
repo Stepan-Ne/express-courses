@@ -1,0 +1,28 @@
+<h2>Edit {{course.title}}</h2>
+
+<form action="/lala" method="POST">
+
+<div class="input-field">
+          <input  id="title" name="title" type="text" class="validate" required 
+          value='{{course.title}}'>
+          <label for="title">Course Title</label>
+          <span class="helper-text" data-error="set the course" ></span>
+</div>
+
+<div class="input-field">
+          <input  id="price" type="number" name="price" class="validate" min="1" required value='{{course.price}}'>
+          <label for="price">Price</label>
+          <span class="helper-text" data-error="set the price" ></span>
+</div>
+
+<div class="input-field">
+          <input  id="img" type="text" name="img" class="validate" required 
+          value='{{course.image}}'>
+          <label for="img">URL of image</label>
+          <span class="helper-text" data-error="set the url" ></span>
+</div>
+
+<button class="btn btn-primary">Add Course</button>
+
+
+</form>
