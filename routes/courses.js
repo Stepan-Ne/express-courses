@@ -24,7 +24,7 @@ const course = await Course.getCourseById(req.params.id)
  })
 
  // Edit the Course
- router.get('/:id/edit', async(req, res) => {
+ router.get('/:id/edit', async (req, res) => {
    const course = await Course.getCourseById(req.params.id)
 
 
@@ -33,5 +33,13 @@ const course = await Course.getCourseById(req.params.id)
        course
     })
  })
+
+ // send form of edit
+ router.post('/lala', async (req, res) => {
+ await Course.update(req.body)
+ 
+res.redirect('/courses')
+ })
+
 
 module.exports = router;
