@@ -17,3 +17,9 @@
 .myCourse p {
     font-size: 2rem;
 }
+.card-action.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
