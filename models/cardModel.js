@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 class CardModel {
+  // ADD TO CARD
   static async add(course) {
     // get the cart content
     const card = await CardModel.fetch();
@@ -36,6 +37,7 @@ class CardModel {
     });
   }
 
+  // GET FROM CARD
   static async fetch() {
     // read card (in Promise)
     return new Promise((resolve, reject) => {
@@ -47,6 +49,32 @@ class CardModel {
         }
       });
     });
+  }
+
+  static async remove(id) {
+    //get old card
+    const card = await CardModel.fetch();
+    const idx = card.courses.findIndex((c) => c.id === id);
+    const course = card.courses[idx];
+    if (course.count === 1) {
+      card.courses = card.courses.filter((c) => c.id !== id);
+    } else {
+      card.courses[idx].count--
+    }
+    //  new price
+    card.price -= course.price;
+    // rewrite card
+    return new Promise((resolve, reject) => {
+      fs.writeFile(path.join(__dirname, '..', 'data', 'card.json'), JSON.stringify(card), (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          // console.log(`CARD`)
+          resolve(card);
+        }
+      });
+    });
+
   }
 }
 
