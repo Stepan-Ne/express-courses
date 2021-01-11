@@ -20,7 +20,7 @@ app.set('view engine', 'hbs')
 app.set('views', 'views')
 
 // registr folder with css
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 // encoded
 app.use(express.urlencoded({ extended: true }))
 
